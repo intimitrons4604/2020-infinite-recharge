@@ -5,12 +5,33 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "subsystems/ExampleSubsystem.h"
+static constexpr double kSpeed = 0.5;
+#include "subsystems/SimpleClimber.h"
 
-ExampleSubsystem::ExampleSubsystem() {
-  // Implementation of subsystem constructor goes here.
+SimpleClimber::SimpleClimber() {
+  ClimbMotors.SetInverted(false);
 }
 
-void ExampleSubsystem::Periodic() {
+void SimpleClimber::Stop(){
+
+  ClimbMotors.StopMotor();
+}
+
+void SimpleClimber::Up(){
+
+  ClimbMotors.Set(kSpeed);
+}
+
+void SimpleClimber::Down(){
+
+  ClimbMotors.Set(-kSpeed);
+
+}
+
+
+
+
+
+void SimpleClimber::Periodic() {
   // Implementation of subsystem periodic method goes here.
 }

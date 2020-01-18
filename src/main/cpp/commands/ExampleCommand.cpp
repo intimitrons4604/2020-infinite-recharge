@@ -5,7 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ExampleCommand.h"
+/*#include "commands/ExampleCommand.h"
 
 ExampleCommand::ExampleCommand(ExampleSubsystem* subsystem)
     : m_subsystem{subsystem} {}
+    */
