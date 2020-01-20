@@ -49,6 +49,31 @@ dependencies {
     simulation wpi.deps.sim.gui(wpi.platforms.desktop, true)
 }
 
+/*
+ * Customize the compiler arguments to enable more warninngs and treat them as errors.
+ *
+ * Currently only being done when compiling for the roboRIO (e.g. not desktop builds such as simulation).
+ *
+ * See below for the default arguments being used:
+ * https://github.com/wpilibsuite/native-utils/blob/2d6004c36a850ca3121468dcc003c38e23fa9b7e/src/main/java/edu/wpi/first/nativeutils/WPINativeUtilsExtension.java#L48-L53
+ * https://github.com/wpilibsuite/native-utils/blob/2d6004c36a850ca3121468dcc003c38e23fa9b7e/src/main/java/edu/wpi/first/nativeutils/WPINativeUtilsExtension.java#L118-L119
+ */
+nativeUtils {
+    platformConfigs {
+        linuxathena {
+            // Default includes '-Wformat=2', '-pedantic', '-Wno-psabi', '-Wno-unused-parameter', '-Wno-error=deprecated-declarations'
+            cppCompiler.args.removeAll { arg -> arg.startsWith('-W') }
+            cppCompiler.args.remove('-pedantic')
+            cppCompiler.args.addAll(['-Werror', '-Wall', '-Wextra', '-Wpedantic', '-Wformat=2'])
+
+            // Default includes '-Wformat=2', '-pedantic', '-Wno-psabi', '-Wno-unused-parameter'
+            cCompiler.args.removeAll { arg -> arg.startsWith('-W') }
+            cCompiler.args.remove('-pedantic')
+            cCompiler.args.addAll(['-Werror', '-Wall', '-Wextra', '-Wpedantic', '-Wformat=2'])
+        }
+    }
+}
+
 model {
     components {
         frcUserProgram(NativeExecutableSpec) {
