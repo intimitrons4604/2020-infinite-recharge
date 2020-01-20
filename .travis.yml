@@ -1,0 +1,7 @@
+---
+dist: bionic
+language: cpp
+
+script:
+  - ./gradlew --console=plain installRoboRioToolchain
+  - ./gradlew --console=plain clean build
