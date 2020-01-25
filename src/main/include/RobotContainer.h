@@ -11,6 +11,10 @@
 
 #include "commands/ExampleCommand.h"
 #include "subsystems/SimpleClimber.h"
+#include "commands/WinchCommand.h"
+#include <memory>
+#include "Controls.h"
+#include <frc2/command/CommandBase.h>
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -27,8 +31,11 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
-  SimpleClimber m_subsystem;
- //ExampleCommand m_autonomousCommand;
+  std::shared_ptr <SimpleClimber> m_subsystem;
+  std::shared_ptr <WinchCommand> m_command;
+  std::shared_ptr <Controls> m_controls;
+
+  
 
   void ConfigureButtonBindings();
 };

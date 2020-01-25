@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-static constexpr double kSpeed = 0.5;
+static constexpr double kSpeed = 1;
 #include "subsystems/SimpleClimber.h"
 
 SimpleClimber::SimpleClimber() {
