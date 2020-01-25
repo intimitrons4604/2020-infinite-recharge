@@ -1,25 +1,26 @@
 #include "subsystems/DriveTrain.h"
 
 static constexpr double kSpeedLimit = 0.5;
-static const char* kSubSystemName = "DriveTrain";
 
 
 
 
-void DriveTrain::ArcadeDrive(double xSpeed, double zRotation, bool squareInputs = true)
+
+
+void DriveTrain::ArcadeDrive(double xSpeed, double zRotation, bool squareInputs)
 {
-    double xSpeedLimit = 0;
-    double zSpeedLImit = 0;
-    if (squareInputs = true)
+    double xSpeedLimited = 0;
+    double zSpeedLimited = 0;
+    if (squareInputs)
     {
-        xSpeedLimit = 0;
-        zSpeedLImit = 0;
+        xSpeedLimited = 0;
+        zSpeedLimited = 0;
     }
-    if (squareInputs = false)
+    if (!squareInputs)
     {
-        xSpeedLimit = xSpeed * kSpeedLimit;
-        zSpeedLImit = zRotation * kSpeedLimit;
+        xSpeedLimited = xSpeed * kSpeedLimit;
+        zSpeedLimited = zRotation * kSpeedLimit;
     } 
 
-   drive_motors.ArcadeDrive(xSpeedLimit, zSpeedLimit, false);
+   drive_motors.ArcadeDrive(xSpeedLimited, zSpeedLimited, false);
 }

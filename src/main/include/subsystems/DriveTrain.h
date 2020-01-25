@@ -30,5 +30,8 @@ class DriveTrain : public frc2::Subsystem
     
     frc::Talon right_front{1};
     frc::Talon right_back{2};
+    frc::SpeedControllerGroup right_motors;
+
+    frc::DifferentialDrive drive_motors{left_motors, right_motors};
 
 };
