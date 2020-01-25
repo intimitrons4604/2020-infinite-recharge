@@ -1,9 +1,11 @@
 #include "subsystems/ExampleSubsystem.h"
 
-ExampleSubsystem::ExampleSubsystem() {
+ExampleSubsystem::ExampleSubsystem()
+{
   // Implementation of subsystem constructor goes here.
 }
 
-void ExampleSubsystem::Periodic() {
+void ExampleSubsystem::Periodic()
+{
   // Implementation of subsystem periodic method goes here.
 }
