@@ -1,6 +1,8 @@
 #pragma once
 
 #include <frc/XboxController.h>
+#include "commands/WinchCommand.h"
+
 
 
 enum class WinchControls
@@ -18,5 +20,6 @@ WinchControls Get_WinchControls();
 
 private:
 frc::XboxController controller1{0};
+
 
 };

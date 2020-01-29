@@ -28,10 +28,6 @@ void SimpleClimber::Down(){
 
 }
 
-
-
-
-
 void SimpleClimber::Periodic() {
   // Implementation of subsystem periodic method goes here.
 }
