@@ -8,18 +8,20 @@
 #include <units/units.h>
 #include <frc/geometry/Pose2d.h>
 #include <frc/SpeedControllerGroup.h>
+#include "controls/ArcadeControls.h"
+
 
 class DriveTrain : public frc2::Subsystem
 {
   public:
     DriveTrain();
-    void TankDrive(double leftSpeed, double righSpeed);
+    //void TankDrive(double leftSpeed, double righSpeed);
 
-    void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
+    //void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
 
-    void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);
+    //void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);
 
-    void ArcadeDrive(double xSpeed, double zRotation, bool squareInputs = true);
+    void ArcadeDrive(ArcadeControls controls);
 
     void Stop();
 

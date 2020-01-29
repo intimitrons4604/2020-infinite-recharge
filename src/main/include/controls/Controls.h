@@ -4,9 +4,11 @@
 
 #include <frc/XboxController.h>
 
-struct ArcadeControls
-{
-  double xSpeed;
-  double zRotation;
-  bool turbo;
+#include "ArcadeControls.h"
+
+class Controls{
+  public:
+    ArcadeControls getDriveControls();
+  private:
+    frc::XboxController controller{0}; 
 };
