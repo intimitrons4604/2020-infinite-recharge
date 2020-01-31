@@ -2,9 +2,9 @@
 
 using Hand = frc::GenericHID::JoystickHand;
 
-Controls::getDriveControls()
+ArcadeControls Controls::getDriveControls()
 {
-    double GetY
+    double GetY;
 
     
 }
