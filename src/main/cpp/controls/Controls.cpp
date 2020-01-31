@@ -2,9 +2,12 @@
 
 using Hand = frc::GenericHID::JoystickHand;
 
-Controls::getDriveControls()
+ArcadeControls Controls::getDriveControls()
 {
-    double GetY
+  double controllerY = controller.GetY(Hand::kRightHand);
+  double controllerX = controller.GetX(Hand::kLeftHand);
+  double controllerTrigger = controller.GetTriggerAxis(Hand::kRightHand);
 
-    
+  return ArcadeControls{controllerY, controllerX, controllerTrigger};
 }
+
