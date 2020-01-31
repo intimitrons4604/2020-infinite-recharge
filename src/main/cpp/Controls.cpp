@@ -5,10 +5,25 @@
 WinchControls Controls::Get_WinchControls()
 {
   bool up = controller1.GetYButton();
-  frc2::JoystickButton joystickButton{&controller1, static_cast<int>(frc::XboxController::Button::kB)};
+  bool down = controller1.GetAButton();
+  if (down&&up){
+//return stop
+  } 
+  if (up){
+//return up
+  }
+  if (down){
+//return down
+  }
+
+  //return Stop
+
+ /* frc2::JoystickButton joystickButton{&controller1, static_cast<int>(frc::XboxController::Button::kB)};
+
   bool down = controller1.GetAButton();
   std::shared_ptr<Controls> controllerpointer = std::make_shared<Controls>(controller1);
   std::shared_ptr<SimpleClimber> climberpointer = std::make_shared<SimpleClimber>();
   joystickButton.WhenPressed(WinchCommand(controllerpointer, climberpointer));
+  */
 };
 

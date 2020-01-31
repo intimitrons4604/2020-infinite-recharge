@@ -1,17 +1,7 @@
 #pragma once
 
 #include <frc/XboxController.h>
-#include "commands/WinchCommand.h"
-
-
-
-enum class WinchControls
-{
-    Stop,
-    Up,
-    Down
-};
-
+#include "subsystems/WinchControls.h"
 
 class Controls
 {
