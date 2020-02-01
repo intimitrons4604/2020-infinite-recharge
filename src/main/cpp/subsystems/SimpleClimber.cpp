@@ -5,9 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-static constexpr double kSpeed = 1;
 #include "subsystems/SimpleClimber.h"
 
+static constexpr double kSpeed = 1;
 SimpleClimber::SimpleClimber() {
   ClimbMotors.SetInverted(false);
 }

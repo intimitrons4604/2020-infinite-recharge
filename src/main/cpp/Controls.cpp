@@ -7,13 +7,16 @@ WinchControls Controls::Get_WinchControls()
   bool up = controller1.GetYButton();
   bool down = controller1.GetAButton();
   if (down&&up){
-//return stop
+return WinchControls::Stop;
   } 
   if (up){
-//return up
+return WinchControls::Up;
   }
   if (down){
-//return down
+return WinchControls::Down;
+  }
+  if (!up&&!down){
+return WinchControls::Stop;
   }
 
   //return Stop
@@ -25,5 +28,5 @@ WinchControls Controls::Get_WinchControls()
   std::shared_ptr<SimpleClimber> climberpointer = std::make_shared<SimpleClimber>();
   joystickButton.WhenPressed(WinchCommand(controllerpointer, climberpointer));
   */
-};
+}
 
