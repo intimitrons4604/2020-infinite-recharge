@@ -12,8 +12,8 @@ void DriveTrain::ArcadeDrive(ArcadeControls controls)
     double zSpeedLimited = 0;
     if (controls.isTurbo())
     {
-        xSpeedLimited = 0;
-        zSpeedLimited = 0;
+        xSpeedLimited = controls.getXSpeed();
+        zSpeedLimited = controls.getZRotation();
     }
     else
     //xSpeedLimit and zSpeedLimit should be between the values -1.0 and 1.0
@@ -21,6 +21,10 @@ void DriveTrain::ArcadeDrive(ArcadeControls controls)
         xSpeedLimited = controls.getXSpeed() * kSpeedLimit;
         zSpeedLimited = controls.getZRotation() * kSpeedLimit;
     } 
+    \
+
+
+    
 
    drive_motors.ArcadeDrive(xSpeedLimited, zSpeedLimited, false);
 }
