@@ -9,6 +9,7 @@
 #include <frc/geometry/Pose2d.h>
 #include <frc/SpeedControllerGroup.h>
 #include "controls/ArcadeControls.h"
+#include "wiring.h"
 
 
 class DriveTrain : public frc2::Subsystem
@@ -26,12 +27,12 @@ class DriveTrain : public frc2::Subsystem
     void Stop();
 
    private: 
-    frc::Talon left_front{4};
-    frc::Talon left_back{3};
+    frc::Talon left_front{PWM::left_front};
+    frc::Talon left_back{PWM::left_back};
     frc::SpeedControllerGroup left_motors;
     
-    frc::Talon right_front{1};
-    frc::Talon right_back{2};
+    frc::Talon right_front{PWM::right_front};
+    frc::Talon right_back{PWM::right_back};
     frc::SpeedControllerGroup right_motors;
 
     frc::DifferentialDrive drive_motors{left_motors, right_motors};

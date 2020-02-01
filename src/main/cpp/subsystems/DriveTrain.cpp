@@ -2,9 +2,7 @@
 
 
 static constexpr double kSpeedLimit = 0.5;
-
-
-
+//kSpeedLimit should be a positive number lower than 1
 
 
 
@@ -18,6 +16,7 @@ void DriveTrain::ArcadeDrive(ArcadeControls controls)
         zSpeedLimited = 0;
     }
     else
+    //xSpeedLimit and zSpeedLimit should be between the values -1.0 and 1.0
     {
         xSpeedLimited = controls.getXSpeed() * kSpeedLimit;
         zSpeedLimited = controls.getZRotation() * kSpeedLimit;

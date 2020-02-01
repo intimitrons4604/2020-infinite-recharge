@@ -10,5 +10,5 @@ class Controls{
   public:
     ArcadeControls getDriveControls();
   private:
-    frc::XboxController controller{0}; 
+    frc::XboxController controller{controller::main_controller}; 
 };
