@@ -6,6 +6,8 @@ RobotContainer::RobotContainer() //: m_autonomousCommand(&m_subsystem)
 
   // Configure the button bindings
   ConfigureButtonBindings();
+
+  m_drivetrain.SetDefaultCommand(m_drivecommand);
 }
 
 void RobotContainer::ConfigureButtonBindings()

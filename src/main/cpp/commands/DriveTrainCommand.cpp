@@ -6,20 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/DriveTrainCommand.h"
+
 #include "controls/Controls.h"
 
-DriveTrainCommand::DriveTrainCommand(DriveTrain* aSubsystem,
-                           std::function<double()> aForward,
-                           std::function<double()> aRotation,
-                           ArcadeControls* aArcadecontrols)
-    : m_subsystem{aSubsystem}, m_forward{aForward}, m_rotation{aRotation}, m_arcadecontrols{aArcadeControls} {
-  
+DriveTrainCommand::DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls)
+    : m_subsystem{aSubsystem}, m_controls{aControls}
+{
   AddRequirements({aSubsystem});
-
 }
 
-void DriveTrainCommand::Execute() {
-  m_subsystem->ArcadeDrive(arcadecontrols);
+void DriveTrainCommand::Execute()
+{
+  m_subsystem->ArcadeDrive(m_controls->getDriveControls());
 }
-
-

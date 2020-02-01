@@ -10,10 +10,8 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include "controls/Controls.h"
 #include "subsystems/DriveTrain.h"
-#include "controls/ArcadeControls.h"
-
-
 
 /**
  * An example command.
@@ -21,27 +19,23 @@
  * <p>Note that this extends CommandHelper, rather extending CommandBase
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
- * 
+ *
  */
-class DriveTrainCommand
-    : public frc2::CommandHelper<frc2::CommandBase, DriveTrainCommand> {
- public:
-  DriveTrainCommand(DriveTrain* subsystem, std::function<double()> forward,
-               std::function<double()> rotation, ArcadeControls* arcadecontrols);
+class DriveTrainCommand : public frc2::CommandHelper<frc2::CommandBase, DriveTrainCommand>
+{
+public:
+  DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls);
+  
 
-  void Initialize() override;
+  //void Initialize() override;
 
   void Execute() override;
 
-  void End(bool interrupted) override;
+ // void End(bool interrupted) override;
 
-  bool IsFinished() override;
+  //bool IsFinished() override;
 
 private:
-DriveTrain* m_subsystem;
-std::function<double()> m_forward;
-std::function<double()> m_rotation;
-ArcadeControls* m_arcadecontrols;
-
-
+  DriveTrain* m_subsystem;
+  Controls* m_controls;
 };

@@ -14,7 +14,6 @@
 class DriveTrain : public frc2::Subsystem
 {
   public:
-    DriveTrain();
     //void TankDrive(double leftSpeed, double righSpeed);
 
     //void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
@@ -28,11 +27,11 @@ class DriveTrain : public frc2::Subsystem
    private: 
     frc::Talon left_front{4};
     frc::Talon left_back{3};
-    frc::SpeedControllerGroup left_motors;
+    frc::SpeedControllerGroup left_motors{left_front, left_back};
     
     frc::Talon right_front{1};
     frc::Talon right_back{2};
-    frc::SpeedControllerGroup right_motors;
+    frc::SpeedControllerGroup right_motors{right_front, right_back};
 
     frc::DifferentialDrive drive_motors{left_motors, right_motors};
 
