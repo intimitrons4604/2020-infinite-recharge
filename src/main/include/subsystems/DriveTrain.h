@@ -15,7 +15,6 @@
 class DriveTrain : public frc2::Subsystem
 {
   public:
-    DriveTrain();
     //void TankDrive(double leftSpeed, double righSpeed);
 
     //void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
