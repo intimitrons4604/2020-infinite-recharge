@@ -2,7 +2,6 @@
 
 #include <frc2/command/Command.h>
 
-#include "subsystems/SimpleClimber.h"
 #include "subsystems/DriveTrain.h"
 #include "commands/DriveTrainCommand.h"
 #include "controls/Controls.h"
@@ -22,7 +21,6 @@ public:
 
 private:
   // The robot's subsystems and commands are defined here...
-  SimpleClimber m_subsystem;
   DriveTrain m_drivetrain; 
   DriveTrainCommand m_drivecommand{&m_drivetrain, &m_drivecontrols};
   Controls m_drivecontrols;
