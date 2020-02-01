@@ -28,11 +28,11 @@ class DriveTrain : public frc2::Subsystem
    private: 
     frc::Talon left_front{PWM::left_front};
     frc::Talon left_back{PWM::left_back};
-    frc::SpeedControllerGroup left_motors {left_front, right_back};
+    frc::SpeedControllerGroup left_motors{left_front, left_back};
     
     frc::Talon right_front{PWM::right_front};
     frc::Talon right_back{PWM::right_back};
-    frc::SpeedControllerGroup right_motors {right_front, right_back};
+    frc::SpeedControllerGroup right_motors{right_front, right_back};
 
     frc::DifferentialDrive drive_motors{left_motors, right_motors};
 
