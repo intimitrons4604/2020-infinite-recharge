@@ -7,24 +7,42 @@
 
 #include "subsystems/SimpleClimber.h"
 
-static constexpr double kSpeed = 1;
+
+static constexpr double ArmSpeed = 0.5;
+static constexpr double RoboSpeed = 1;
 SimpleClimber::SimpleClimber() {
-  ClimbMotors.SetInverted(false);
+  //ClimbMotors.SetInverted(false);
 }
 
 void SimpleClimber::Stop(){
 
-  ClimbMotors.StopMotor();
+  ClimbMotorArm.StopMotor();
+  ClimbMotorRobot.StopMotor();
 }
 
 void SimpleClimber::Up(){
+  //old code
+  //ClimbMotorArm.Set(ArmSpeed);
+  //ClimbMotorRobot.Set(-RoboSpeed);
+ 
+  //test code
+  if(Encoder1.getDistance()>=5){
 
-  ClimbMotors.Set(kSpeed);
+  ClimbMotorArm.StopMotor();
+
+  }
+  else
+  {
+    /* code */
+    ClimbMotorArm.Set(ArmSpeed); 
+  }
+  
 }
 
 void SimpleClimber::Down(){
 
-  ClimbMotors.Set(-kSpeed);
+  ClimbMotorArm.Set(-ArmSpeed);
+  ClimbMotorRobot.Set(RoboSpeed);
 
 }
 

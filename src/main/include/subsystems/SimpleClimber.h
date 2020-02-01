@@ -10,6 +10,7 @@
 #include <frc2/command/SubsystemBase.h>
 #include <frc/Talon.h>
 #include <frc/SpeedControllerGroup.h>
+#include <frc/Encoder.h>
 
 
 
@@ -30,7 +31,9 @@ class SimpleClimber : public frc2::SubsystemBase {
  private:
   frc::Talon fifth_talon{5};
   frc::Talon sixth_talon{6};
-  frc::SpeedControllerGroup ClimbMotors{fifth_talon, sixth_talon};
+  frc::SpeedControllerGroup ClimbMotorArm{fifth_talon};
+  frc::SpeedControllerGroup ClimbMotorRobot{sixth_talon};
+  frc::Encoder Encoder1{0,1};
   
 
   // Components (e.g. motor controllers and sensors) should generally be
