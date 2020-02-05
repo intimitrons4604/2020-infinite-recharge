@@ -1,4 +1,5 @@
-#include "commands/WinchCommand.h"
+#include "commands/WinchCommand.h" 
+#include "subsystems/SimpleClimber.h"
 
 WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<SimpleClimber> simpleclimber)
     : controls(controls), simpleclimber(simpleclimber)
@@ -8,6 +9,9 @@ WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<S
 
 void WinchCommand::Initialize()
 {
+
+//Encoder1.getDistance(0)
+
 }
 
 void WinchCommand::Execute()
@@ -33,6 +37,12 @@ void WinchCommand::Execute()
 bool WinchCommand::IsFinished()
 {
   return false;
+
+  /*if(Encoder1.getDistance()>=5)
+  {
+
+  ClimbMotorArm.StopMotor();
+  }*/
 }
 
 void WinchCommand::End(bool interrupted)

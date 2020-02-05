@@ -22,11 +22,14 @@ void SimpleClimber::Stop(){
 
 void SimpleClimber::Up(){
   //old code
-  //ClimbMotorArm.Set(ArmSpeed);
-  //ClimbMotorRobot.Set(-RoboSpeed);
+  ClimbMotorArm.Set(ArmSpeed);
+  ClimbMotorRobot.Set(-RoboSpeed);
  
+
+ Encoder1.GetDistance();
+
   //test code
-  if(Encoder1.getDistance()>=5){
+  if(Encoder1.GetDistance()>=5){
 
   ClimbMotorArm.StopMotor();
 
@@ -34,6 +37,7 @@ void SimpleClimber::Up(){
   else
   {
     /* code */
+
     ClimbMotorArm.Set(ArmSpeed); 
   }
   

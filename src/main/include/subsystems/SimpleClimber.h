@@ -35,9 +35,7 @@ class SimpleClimber : public frc2::SubsystemBase {
   frc::SpeedControllerGroup ClimbMotorRobot{sixth_talon};
   frc::Encoder Encoder1{0,1};
   
-
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  //tester
-  int x;
+  
 };
