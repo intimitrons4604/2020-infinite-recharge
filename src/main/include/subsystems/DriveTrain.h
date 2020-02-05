@@ -10,6 +10,14 @@
 #include <frc/SpeedControllerGroup.h>
 #include "controls/ArcadeControls.h"
 #include "wiring.h"
+#include <frc/Encoder.h>
+#include <frc/ADXRS450_Gyro.h>
+#include <frc/SPI.h>
+#include <frc/geometry/Pose2d.h>
+#include <
+
+
+
 
 
 class DriveTrain : public frc2::Subsystem
@@ -19,7 +27,7 @@ class DriveTrain : public frc2::Subsystem
 
     //void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
 
-    //void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);
+    void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);
 
     void ArcadeDrive(ArcadeControls controls);
 
@@ -36,6 +44,14 @@ class DriveTrain : public frc2::Subsystem
 
     frc::DifferentialDrive drive_motors{left_motors, right_motors};
 
+    //odometry encoders & gyro
+    frc::Encoder drive_encoder{7, 8, false, frc::Encoder::EncodingType::k4X};
+    frc::Encoder drive_encoder2{9, 0, false, frc::Encoder::EncodingType::k4X};
+  
+    frc::ADXRS450_Gyro drive_gyro{frc::SPI::Port::kOnboardCS1};
+
+    frc::DifferentialDriveOdometry m_odometry{GetGyroHeading()};
+    frc::Pose2d{5_m, 13.5_m, 0_rad}};
 
     
 
