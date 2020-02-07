@@ -14,6 +14,7 @@
 #include <frc/ADXRS450_Gyro.h>
 #include <frc/SPI.h>
 #include <frc/geometry/Pose2d.h>
+#include <frc/geometry/Rotation2d.h>
 
 
 
@@ -25,14 +26,16 @@ class DriveTrain : public frc2::Subsystem
   public:
     //void TankDrive(double leftSpeed, double righSpeed);
 
-    //void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
+    void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
 
     void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);
 
     void ArcadeDrive(ArcadeControls controls);
 
     void Stop();
-}
+    
+    void Periodic() override;
+
 
    private: 
 
@@ -52,8 +55,10 @@ class DriveTrain : public frc2::Subsystem
   
     frc::ADXRS450_Gyro drive_gyro{frc::SPI::Port::kOnboardCS1};
 
-    frc::DifferentialDriveOdometry m_odometry{GetGyroHeading()};
+    frc::DifferentialDriveOdometry m_odometry{frc::Rotation2d()};
     frc::Pose2d drive_pose{5_m, 13.5_m, 0_rad};
+
+    //
 
     
 
