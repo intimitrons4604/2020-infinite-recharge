@@ -24,12 +24,13 @@ void SimpleClimber::Up(){
   //old code
   ClimbMotorArm.Set(ArmSpeed);
   ClimbMotorRobot.Set(-RoboSpeed);
- 
 
- Encoder1.GetDistance();
+
+ EncoderArm.GetDistance();
+ EncoderRobot.GetDistance();
 
   //test code
-  if(Encoder1.GetDistance()>=5){
+  if(EncoderArm.GetDistance()>=5||EncoderRobot.GetDistance()<=-5){
 
   ClimbMotorArm.StopMotor();
 
@@ -41,12 +42,32 @@ void SimpleClimber::Up(){
     ClimbMotorArm.Set(ArmSpeed); 
   }
   
+
 }
 
 void SimpleClimber::Down(){
 
   ClimbMotorArm.Set(-ArmSpeed);
   ClimbMotorRobot.Set(RoboSpeed);
+
+  EncoderArm.GetDistance();
+ EncoderRobot.GetDistance();
+
+  //test code
+  if(EncoderArm.GetDistance()>=-5||EncoderRobot.GetDistance()<=5){
+
+  ClimbMotorArm.StopMotor();
+
+  }
+  else
+  {
+    /* code */
+
+    ClimbMotorArm.Set(ArmSpeed); 
+  }
+  
+
+
 
 }
 
