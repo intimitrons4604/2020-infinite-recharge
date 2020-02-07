@@ -14,7 +14,7 @@
 #include <frc/ADXRS450_Gyro.h>
 #include <frc/SPI.h>
 #include <frc/geometry/Pose2d.h>
-#include <
+
 
 
 
@@ -32,8 +32,10 @@ class DriveTrain : public frc2::Subsystem
     void ArcadeDrive(ArcadeControls controls);
 
     void Stop();
+}
 
    private: 
+
     frc::Talon left_front{PWM::left_front};
     frc::Talon left_back{PWM::left_back};
     frc::SpeedControllerGroup left_motors{left_front, left_back};
@@ -51,7 +53,7 @@ class DriveTrain : public frc2::Subsystem
     frc::ADXRS450_Gyro drive_gyro{frc::SPI::Port::kOnboardCS1};
 
     frc::DifferentialDriveOdometry m_odometry{GetGyroHeading()};
-    frc::Pose2d{5_m, 13.5_m, 0_rad}};
+    frc::Pose2d drive_pose{5_m, 13.5_m, 0_rad};
 
     
 

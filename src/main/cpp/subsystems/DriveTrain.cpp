@@ -36,3 +36,11 @@ void DriveTrain::Stop()
     bool squareInputs = false;
     drive_motors.ArcadeDrive(xSpeedLimited, zSpeedLimited, squareInputs);
 }
+
+void Periodic() override {
+
+  frc::Rotation2d gyroAngle{units::degree_t(-drive_gyro.GetAngle())};
+
+  // Update the pose
+  m_pose = m_odometry.Update(gyroAngle, frc::Encoder::drive_encoder.GetDistance(), frc::Encoder::drive_encoder2.GetDistance());
+}
