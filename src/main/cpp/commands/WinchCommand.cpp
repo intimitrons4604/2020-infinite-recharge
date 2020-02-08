@@ -1,6 +1,6 @@
 #include "commands/WinchCommand.h" 
 #include "subsystems/SimpleClimber.h"
-
+#include "subsystems/LimitSwitch.h"
 WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<SimpleClimber> simpleclimber)
     : controls(controls), simpleclimber(simpleclimber)
 {
@@ -37,13 +37,13 @@ void WinchCommand::Execute()
 bool WinchCommand::IsFinished()
 {
   return false;
-
-  /*if(Encoder1.getDistance()>=5)
+/*
+  if(limit(get))
   {
-
-  ClimbMotorArm.StopMotor();
-  }*/
-  
+return true;
+ // ClimbMotorArm.StopMotor();
+  }
+  */
 }
 
 void WinchCommand::End(bool interrupted)
