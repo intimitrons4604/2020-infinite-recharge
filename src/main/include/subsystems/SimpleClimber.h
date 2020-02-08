@@ -11,7 +11,7 @@
 #include <frc/Talon.h>
 #include <frc/SpeedControllerGroup.h>
 #include <frc/Encoder.h>
-
+#include <frc/DigitalInput.h>
 
 
 class SimpleClimber : public frc2::SubsystemBase {
@@ -35,6 +35,10 @@ class SimpleClimber : public frc2::SubsystemBase {
   frc::SpeedControllerGroup ClimbMotorRobot{sixth_talon};
   frc::Encoder EncoderArm{0,1};
   frc::Encoder EncoderRobot{2,3};
+  //frc::DigitalInput open_switch{DIO::open_clawswitch};
+  //frc::DigitalInput close_switch{DIO::close_clawswitch};
+  
+//  frc::LimitSwitch ArmLimitSwitch{4,5};
   
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/SimpleClimber.h"
+#include "subsystems/LimitSwitch.h"
 
 
 static constexpr double ArmSpeed = 0.5;

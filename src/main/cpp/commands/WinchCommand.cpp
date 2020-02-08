@@ -43,6 +43,7 @@ bool WinchCommand::IsFinished()
 
   ClimbMotorArm.StopMotor();
   }*/
+  
 }
 
 void WinchCommand::End(bool interrupted)
