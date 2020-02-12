@@ -27,13 +27,13 @@ public:
   DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls);
   
 
-  //void Initialize() override;
+  void Initialize() override;
 
   void Execute() override;
 
- // void End(bool interrupted) override;
+  void End(bool interrupted) override;
 
-  //bool IsFinished() override;
+  bool IsFinished() override;
 
 private:
   DriveTrain* m_subsystem;

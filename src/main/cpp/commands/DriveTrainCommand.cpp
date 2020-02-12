@@ -15,9 +15,22 @@ DriveTrainCommand::DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls
   AddRequirements({aSubsystem});
 }
 
+void DriveTrainCommand::Initialize()
+{
+
+}
+
 void DriveTrainCommand::Execute()
 {
   m_subsystem->ArcadeDrive(m_controls->getDriveControls());
 }
 
+void DriveTrainCommand::End(bool interrupted)
+{
 
+}
+
+bool DriveTrainCommand::IsFinished()
+{
+return false;
+}
