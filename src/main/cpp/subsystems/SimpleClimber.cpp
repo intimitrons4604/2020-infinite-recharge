@@ -12,7 +12,7 @@
 static constexpr double ArmSpeed = 0.5;
 static constexpr double RoboSpeed = 1;
 SimpleClimber::SimpleClimber() {
-  //ClimbMotors.SetInverted(false);
+  limitSwitch = new frc::DigitalInput(4);
 }
 
 void SimpleClimber::Stop(){
@@ -60,13 +60,13 @@ void SimpleClimber::Down(){
   ClimbMotorArm.StopMotor();
 
   }
-  else
+ /* else
   {
-    /* code */
+     code 
 
     ClimbMotorArm.Set(ArmSpeed); 
   }
-  
+  */
 
 
 

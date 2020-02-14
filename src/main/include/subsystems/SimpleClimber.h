@@ -22,6 +22,15 @@ class SimpleClimber : public frc2::SubsystemBase {
   void Down();
   void Stop();
 
+  bool isLimitReached(){
+    if (limitSwitch->Get())
+    {
+        return true;
+    }
+    else {
+      return false;
+    }
+  }
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
@@ -35,7 +44,7 @@ class SimpleClimber : public frc2::SubsystemBase {
   frc::SpeedControllerGroup ClimbMotorRobot{sixth_talon};
   frc::Encoder EncoderArm{0,1};
   frc::Encoder EncoderRobot{2,3};
-  frc::DigitalInput limit{4};
+  frc::DigitalInput* limitSwitch;
 
   
   // Components (e.g. motor controllers and sensors) should generally be

@@ -37,13 +37,13 @@ void WinchCommand::Execute()
 bool WinchCommand::IsFinished()
 {
   return false;
-/*
-  if(limit(get))
+
+  if(simpleclimber->isLimitReached())
   {
-return true;
- // ClimbMotorArm.StopMotor();
+    return true;
+
   }
-  */
+  
 }
 
 void WinchCommand::End(bool interrupted)

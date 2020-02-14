@@ -1,5 +1,5 @@
 #include <frc/Counter.h>
-//#include <frc/DigitalInput.h>
+#include <frc/DigitalInput.h>
 #include <frc/SpeedController.h>
 #include <frc/Victor.h>
 #include "subsystems/SimpleClimber.h"
