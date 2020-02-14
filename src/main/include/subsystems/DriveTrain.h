@@ -55,7 +55,7 @@ class DriveTrain : public frc2::Subsystem
   
     frc::ADXRS450_Gyro drive_gyro{frc::SPI::Port::kOnboardCS1};
 
-    frc::DifferentialDriveOdometry m_odometry{frc::Rotation2d()};
+    frc::DifferentialDriveOdometry m_odometry{frc::Rotation2d{0_deg}};
     frc::Pose2d drive_pose{5_m, 13.5_m, 0_rad};
 
     //
