@@ -16,6 +16,7 @@
 #include <frc/geometry/Pose2d.h>
 #include <frc/geometry/Rotation2d.h>
 #include <units/units.h>
+#include <utility>
 
 
 
@@ -35,6 +36,8 @@ class DriveTrain : public frc2::Subsystem
     void Stop();
     
     void Periodic() override;
+
+    std::pair<double, double> GetEncoderDistance();
 
 
    private: 

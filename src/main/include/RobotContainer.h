@@ -1,7 +1,7 @@
 #pragma once
 
 #include <frc2/command/Command.h>
-
+#include "commands/AutonomousCommand.h"
 #include "subsystems/DriveTrain.h"
 #include "commands/DriveTrainCommand.h"
 #include "controls/Controls.h"
@@ -24,6 +24,7 @@ private:
   DriveTrain m_drivetrain; 
   DriveTrainCommand m_drivecommand{&m_drivetrain, &m_drivecontrols};
   Controls m_drivecontrols;
+  AutonomousCommand m_autocommand{&m_drivetrain};  
 
   void ConfigureButtonBindings();
 };
