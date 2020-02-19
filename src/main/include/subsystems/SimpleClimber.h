@@ -26,9 +26,11 @@ class SimpleClimber : public frc2::SubsystemBase {
     if (limitSwitch->Get())
     {
         return true;
+        std::cout<<"LimitSwitch pressed";
     }
     else {
       return false;
+      std::cout<<"not pressed";
     }
   }
   /**
