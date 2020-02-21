@@ -12,6 +12,7 @@
 #include <frc/SpeedControllerGroup.h>
 #include <frc/Encoder.h>
 #include <frc/DigitalInput.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 
 class SimpleClimber : public frc2::SubsystemBase {
@@ -25,12 +26,14 @@ class SimpleClimber : public frc2::SubsystemBase {
   bool isLimitReached(){
     if (limitSwitch->Get())
     {
-        return true;
         std::cout<<"LimitSwitch pressed";
+        frc::SmartDashboard::PutString("DB/String 1","SwitchPressed");
+        return true;
     }
     else {
-      return false;
       std::cout<<"not pressed";
+      frc::SmartDashboard::PutString("DB/String 1","SwitchNotPressed");
+      return false;
     }
   }
   /**

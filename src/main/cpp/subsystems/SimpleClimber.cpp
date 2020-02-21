@@ -7,6 +7,7 @@
 
 #include "subsystems/SimpleClimber.h"
 #include "subsystems/LimitSwitch.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 
 static constexpr double ArmSpeed = 0.5;
@@ -22,6 +23,10 @@ void SimpleClimber::Stop(){
 }
 
 void SimpleClimber::Up(){
+//print out working for testing
+std::cerr<< "cout works!";
+frc::SmartDashboard::PutString("DB/String 0","Up");
+
   //old code
   ClimbMotorArm.Set(ArmSpeed);
   ClimbMotorRobot.Set(-RoboSpeed);
@@ -47,6 +52,9 @@ void SimpleClimber::Up(){
 }
 
 void SimpleClimber::Down(){
+//printing out "down" for testing
+frc::SmartDashboard::PutString("DB/String 0","Down");
+frc::SmartDashboard::PutString("DB/String 1","SmartDashboardWorks");
 
   ClimbMotorArm.Set(-ArmSpeed);
   ClimbMotorRobot.Set(RoboSpeed);
