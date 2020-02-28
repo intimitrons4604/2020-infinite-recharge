@@ -45,12 +45,10 @@ void WinchCommand::Execute()
 
 bool WinchCommand::IsFinished()
 {
-frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
-
   if(simpleclimber->isLimitReached())
   {
-
-   // return true;
+frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
+   return true;
 
   } 
   return false;
