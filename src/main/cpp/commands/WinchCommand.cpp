@@ -50,10 +50,10 @@ frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
   if(simpleclimber->isLimitReached())
   {
 
-    return true;
+   // return true;
 
-  }
-  
+  } 
+  return false;
 }
 
 void WinchCommand::End(bool interrupted)
