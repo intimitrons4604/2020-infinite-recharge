@@ -15,6 +15,17 @@ void WinchCommand::Initialize()
 
 }
 
+bool WinchCommand::IsFinished()
+{
+  if(simpleclimber->isLimitReached())
+  {
+frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
+   return true;
+
+  } 
+  return false;
+}
+
 void WinchCommand::Execute()
 {
   auto control = controls->Get_WinchControls();
@@ -27,8 +38,14 @@ void WinchCommand::Execute()
      
 
     case WinchControls::Up:
+     if(simpleclimber->isLimitReached())
+  {simpleclimber->Stop();
+    frc::SmartDashboard::PutString("DB/String 2","UpStopped");
+
+  } else {
       simpleclimber->Up();
       frc::SmartDashboard::PutString("DB/String 2","Up");
+  }
       break;
       
     case WinchControls::Down:
@@ -43,7 +60,7 @@ void WinchCommand::Execute()
   }
 }
 
-bool WinchCommand::IsFinished()
+/*bool WinchCommand::IsFinished()
 {
   if(simpleclimber->isLimitReached())
   {
@@ -52,7 +69,7 @@ frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
 
   } 
   return false;
-}
+}*/
 
 void WinchCommand::End(bool interrupted)
 {
