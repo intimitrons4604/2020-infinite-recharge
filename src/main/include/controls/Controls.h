@@ -19,5 +19,5 @@ class Controls{
     ColourControls getColourControls();
   private:
     frc::XboxController controller{controller::main_controller}; 
-
 };
+

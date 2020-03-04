@@ -27,7 +27,7 @@ void DriveTrainCommand::Execute()
 
 void DriveTrainCommand::End(bool interrupted)
 {
-
+  (void) interrupted;
 }
 
 bool DriveTrainCommand::IsFinished()

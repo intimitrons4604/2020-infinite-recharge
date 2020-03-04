@@ -5,6 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+static constexpr double kSpeed = 0.5;
 #include "subsystems/ColourWheel.h"
 
 ColourWheel::ColourWheel() {
@@ -21,7 +22,7 @@ void ColourWheel::SpinC() {
     }
     else
     {
-        colour_motor.Set(kSpeed)
+        colour_motor.Set(kSpeed);
     }
     
 }
@@ -33,7 +34,7 @@ void ColourWheel::SpinCC() {
     }
     else
     {
-        colour_motor.Set(-kSpeed)
+        colour_motor.Set(-kSpeed);
     }
   
 }
