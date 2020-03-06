@@ -1,9 +1,13 @@
 #pragma once
 
-#include <frc2/command/Command.h>
+#include <memory>
 
-#include "commands/ExampleCommand.h"
-#include "subsystems/ExampleSubsystem.h"
+#include <frc2/command/Command.h>
+#include <frc2/command/CommandBase.h>
+
+#include "Controls.h"
+#include "commands/WinchCommand.h"
+#include "subsystems/SimpleClimber.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -17,12 +21,13 @@ class RobotContainer
 public:
   RobotContainer();
 
-  frc2::Command* GetAutonomousCommand();
+  frc2::Command *GetAutonomousCommand();
 
 private:
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
+  std::shared_ptr<SimpleClimber> m_subsystem;
+  std::shared_ptr<WinchCommand> m_command;
+  std::shared_ptr<Controls> m_controls;
 
   void ConfigureButtonBindings();
 };
