@@ -33,6 +33,6 @@ class ColourWheelCommand
   bool IsFinished() override;
 
 private:
-  std::shared_ptr<Controls> controls;
-  std::shared_ptr<ColourWheel> colourwheel;
+  std::shared_ptr<Controls> m_controls;
+  std::shared_ptr<ColourWheel> m_colourwheel;
 };

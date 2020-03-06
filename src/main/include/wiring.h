@@ -1,6 +1,6 @@
 #pragma once
 
-namespace PWM
+namespace CAN
 {
     constexpr int left_front = 4;
     constexpr int left_back = 3;

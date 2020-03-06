@@ -20,7 +20,10 @@ void ColourWheelCommand::Initialize() {}
 void ColourWheelCommand::Execute() {}
 
 // Called once the command ends or is interrupted.
-void ColourWheelCommand::End(bool interrupted) {}
+void ColourWheelCommand::End(bool interrupted) 
+{
+  (void) interrupted;
+}
 
 // Returns true when the command should end.
 bool ColourWheelCommand::IsFinished() { return false; }

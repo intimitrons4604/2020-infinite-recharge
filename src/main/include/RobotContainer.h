@@ -5,6 +5,7 @@
 #include "subsystems/DriveTrain.h"
 #include "commands/DriveTrainCommand.h"
 #include "controls/Controls.h"
+#include "commands/ColourWheelCommand.h"
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -24,6 +25,7 @@ private:
   DriveTrain m_drivetrain; 
   DriveTrainCommand m_drivecommand{&m_drivetrain, &m_drivecontrols};
   Controls m_drivecontrols;
+  ColourWheelCommand m_colourcommand{&controls, &colourwheel};
 
   void ConfigureButtonBindings();
 };

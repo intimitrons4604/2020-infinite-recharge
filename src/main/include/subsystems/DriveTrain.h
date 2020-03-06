@@ -1,6 +1,6 @@
 #pragma once
 
-#include <frc/Talon.h> 
+#include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h> 
 #include <frc/drive/DifferentialDrive.h>
 #include <frc2/command/Subsystem.h>
 #include <frc/kinematics/DifferentialDriveKinematics.h>
@@ -39,12 +39,12 @@ class DriveTrain : public frc2::Subsystem
 
    private: 
 
-    frc::Talon left_front{PWM::left_front};
-    frc::Talon left_back{PWM::left_back};
+    ctre::phoenix::motorcontrol::can::WPI_VictorSPX left_front{CAN::left_front};
+    ctre::phoenix::motorcontrol::can::WPI_VictorSPX left_back{CAN::left_back};
     frc::SpeedControllerGroup left_motors{left_front, left_back};
     
-    frc::Talon right_front{PWM::right_front};
-    frc::Talon right_back{PWM::right_back};
+    ctre::phoenix::motorcontrol::can::WPI_VictorSPX right_front{CAN::right_front};
+    ctre::phoenix::motorcontrol::can::WPI_VictorSPX right_back{CAN::right_back};
     frc::SpeedControllerGroup right_motors{right_front, right_back};
 
     frc::DifferentialDrive drive_motors{left_motors, right_motors};
