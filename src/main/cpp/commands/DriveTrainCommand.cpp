@@ -17,7 +17,6 @@ DriveTrainCommand::DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls
 
 void DriveTrainCommand::Initialize()
 {
-
 }
 
 void DriveTrainCommand::Execute()
@@ -27,10 +26,10 @@ void DriveTrainCommand::Execute()
 
 void DriveTrainCommand::End(bool interrupted)
 {
-
+  (void) interrupted;
 }
 
 bool DriveTrainCommand::IsFinished()
 {
-return false;
+  return false;
 }
