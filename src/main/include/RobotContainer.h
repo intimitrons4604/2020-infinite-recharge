@@ -1,12 +1,13 @@
 #pragma once
 
-#include <frc2/command/Command.h>
-
-#include "subsystems/SimpleClimber.h"
-#include "commands/WinchCommand.h"
 #include <memory>
-#include "Controls.h"
+
+#include <frc2/command/Command.h>
 #include <frc2/command/CommandBase.h>
+
+#include "Controls.h"
+#include "commands/WinchCommand.h"
+#include "subsystems/SimpleClimber.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since

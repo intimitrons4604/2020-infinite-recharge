@@ -1,13 +1,13 @@
 #pragma once
 
+#include <frc/SpeedControllerGroup.h>
 #include <frc/Talon.h>
 #include <frc/drive/DifferentialDrive.h>
-#include <frc2/command/Subsystem.h>
+#include <frc/geometry/Pose2d.h>
 #include <frc/kinematics/DifferentialDriveKinematics.h>
 #include <frc/kinematics/DifferentialDriveOdometry.h>
+#include <frc2/command/Subsystem.h>
 #include <units/units.h>
-#include <frc/geometry/Pose2d.h>
-#include <frc/SpeedControllerGroup.h>
 
 class DriveTrain : public frc2::Subsystem
 {

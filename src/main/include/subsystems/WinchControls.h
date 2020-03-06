@@ -2,7 +2,7 @@
 
 enum class WinchControls
 {
-    Stop,
-    Up,
-    Down
+  Stop,
+  Up,
+  Down
 };

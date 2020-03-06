@@ -2,16 +2,16 @@
 #include <memory>
 
 #include <frc2/command/Command.h>
-#include <frc2/command/CommandHelper.h>
 #include <frc2/command/CommandBase.h>
-#include "subsystems/SimpleClimber.h"
-#include "subsystems/WinchControls.h"
+#include <frc2/command/CommandHelper.h>
+
 #include "Controls.h"
 #include "subsystems/SimpleClimber.h"
+#include "subsystems/WinchControls.h"
 
 class WinchCommand : public frc2::CommandHelper<frc2::CommandBase, WinchCommand>
 {
- public:
+public:
   WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<SimpleClimber> simpleclimber);
 
   void Initialize() override;
@@ -19,10 +19,7 @@ class WinchCommand : public frc2::CommandHelper<frc2::CommandBase, WinchCommand>
   bool IsFinished() override;
   void End(bool interrupted) override;
 
- private:
+private:
   std::shared_ptr<Controls> controls;
   std::shared_ptr<SimpleClimber> simpleclimber;
 };
-
-
-

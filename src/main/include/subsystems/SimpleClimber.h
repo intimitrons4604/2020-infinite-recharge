@@ -7,32 +7,34 @@
 
 #pragma once
 
-#include <frc2/command/SubsystemBase.h>
-#include <frc/Talon.h>
-#include <frc/SpeedControllerGroup.h>
-#include <frc/Encoder.h>
 #include <frc/DigitalInput.h>
+#include <frc/Encoder.h>
+#include <frc/SpeedControllerGroup.h>
+#include <frc/Talon.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <frc2/command/SubsystemBase.h>
 
-
-class SimpleClimber : public frc2::SubsystemBase {
- public:
+class SimpleClimber : public frc2::SubsystemBase
+{
+public:
   SimpleClimber();
 
   void Up();
   void Down();
   void Stop();
 
-  bool isLimitReached(){
+  bool isLimitReached()
+  {
     if (limitSwitch->Get())
     {
-        std::cout<<"LimitSwitch pressed";
-        frc::SmartDashboard::PutString("DB/String 1","SwitchPressed");
-        return true;
+      std::cout << "LimitSwitch pressed";
+      frc::SmartDashboard::PutString("DB/String 1", "SwitchPressed");
+      return true;
     }
-    else {
-      std::cout<<"not pressed";
-      frc::SmartDashboard::PutString("DB/String 1","SwitchNotPressed");
+    else
+    {
+      std::cout << "not pressed";
+      frc::SmartDashboard::PutString("DB/String 1", "SwitchNotPressed");
       return false;
     }
   }
@@ -42,17 +44,15 @@ class SimpleClimber : public frc2::SubsystemBase {
 
   void Periodic() override;
 
- private:
+private:
   frc::Talon fifth_talon{5};
   frc::Talon sixth_talon{6};
   frc::SpeedControllerGroup ClimbMotorArm{fifth_talon};
   frc::SpeedControllerGroup ClimbMotorRobot{sixth_talon};
-  frc::Encoder EncoderArm{0,1};
-  frc::Encoder EncoderRobot{2,3};
+  frc::Encoder EncoderArm{0, 1};
+  frc::Encoder EncoderRobot{2, 3};
   frc::DigitalInput* limitSwitch;
 
-  
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  
 };

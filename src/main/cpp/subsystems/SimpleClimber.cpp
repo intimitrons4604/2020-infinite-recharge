@@ -6,80 +6,77 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/SimpleClimber.h"
-#include "subsystems/LimitSwitch.h"
+
 #include <frc/smartdashboard/SmartDashboard.h>
 
+#include "subsystems/LimitSwitch.h"
 
 static constexpr double ArmSpeed = 0.5;
 static constexpr double RoboSpeed = 1;
-SimpleClimber::SimpleClimber() {
+SimpleClimber::SimpleClimber()
+{
   limitSwitch = new frc::DigitalInput(4);
 }
 
-void SimpleClimber::Stop(){
-
+void SimpleClimber::Stop()
+{
   ClimbMotorArm.StopMotor();
   ClimbMotorRobot.StopMotor();
 }
 
-void SimpleClimber::Up(){
-//print out working for testing
-std::cerr<< "cout works!";
-frc::SmartDashboard::PutString("DB/String 0","Up");
+void SimpleClimber::Up()
+{
+  // print out working for testing
+  std::cerr << "cout works!";
+  frc::SmartDashboard::PutString("DB/String 0", "Up");
 
-  //old code
+  // old code
   ClimbMotorArm.Set(ArmSpeed);
   ClimbMotorRobot.Set(-RoboSpeed);
 
+  EncoderArm.GetDistance();
+  EncoderRobot.GetDistance();
 
- EncoderArm.GetDistance();
- EncoderRobot.GetDistance();
-
-  //test code
-  if(EncoderArm.GetDistance()>=5||EncoderRobot.GetDistance()<=-5){
-
-  ClimbMotorArm.StopMotor();
-
+  // test code
+  if (EncoderArm.GetDistance() >= 5 || EncoderRobot.GetDistance() <= -5)
+  {
+    ClimbMotorArm.StopMotor();
   }
   else
   {
     /* code */
 
-    ClimbMotorArm.Set(ArmSpeed); 
+    ClimbMotorArm.Set(ArmSpeed);
   }
-  
-
 }
 
-void SimpleClimber::Down(){
-//printing out "down" for testing
-frc::SmartDashboard::PutString("DB/String 0","Down");
-frc::SmartDashboard::PutString("DB/String 1","SmartDashboardWorks");
+void SimpleClimber::Down()
+{
+  // printing out "down" for testing
+  frc::SmartDashboard::PutString("DB/String 0", "Down");
+  frc::SmartDashboard::PutString("DB/String 1", "SmartDashboardWorks");
 
   ClimbMotorArm.Set(-ArmSpeed);
   ClimbMotorRobot.Set(RoboSpeed);
 
   EncoderArm.GetDistance();
- EncoderRobot.GetDistance();
+  EncoderRobot.GetDistance();
 
-  //test code
-  if(EncoderArm.GetDistance()>=-5||EncoderRobot.GetDistance()<=5){
-
-  ClimbMotorArm.StopMotor();
-
-  }
- /* else
+  // test code
+  if (EncoderArm.GetDistance() >= -5 || EncoderRobot.GetDistance() <= 5)
   {
-     code 
-
-    ClimbMotorArm.Set(ArmSpeed); 
+    ClimbMotorArm.StopMotor();
   }
-  */
+  /* else
+   {
+      code
 
-
-
+     ClimbMotorArm.Set(ArmSpeed);
+   }
+   */
 }
 
-void SimpleClimber::Periodic() {
+void SimpleClimber::Periodic()
+{
   // Implementation of subsystem periodic method goes here.
 }

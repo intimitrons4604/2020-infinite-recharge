@@ -1,7 +1,9 @@
-#include "commands/WinchCommand.h" 
-#include "subsystems/SimpleClimber.h"
-#include "subsystems/LimitSwitch.h"
+#include "commands/WinchCommand.h"
+
 #include <frc/smartdashboard/SmartDashboard.h>
+
+#include "subsystems/LimitSwitch.h"
+#include "subsystems/SimpleClimber.h"
 WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<SimpleClimber> simpleclimber)
     : controls(controls), simpleclimber(simpleclimber)
 {
@@ -10,19 +12,16 @@ WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<S
 
 void WinchCommand::Initialize()
 {
-
-//Encoder1.getDistance(0)
-
+  // Encoder1.getDistance(0)
 }
 
 bool WinchCommand::IsFinished()
 {
-  if(simpleclimber->isLimitReached())
+  if (simpleclimber->isLimitReached())
   {
-frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
-   return true;
-
-  } 
+    frc::SmartDashboard::PutString("DB/String 0", "IsFinishedReached");
+    return true;
+  }
   return false;
 }
 
@@ -33,29 +32,30 @@ void WinchCommand::Execute()
   {
     case WinchControls::Stop:
       simpleclimber->Stop();
-      frc::SmartDashboard::PutString("DB/String 2","Stop"); 
+      frc::SmartDashboard::PutString("DB/String 2", "Stop");
       break;
-     
 
     case WinchControls::Up:
-     if(simpleclimber->isLimitReached())
-  {simpleclimber->Stop();
-    frc::SmartDashboard::PutString("DB/String 2","UpStopped");
-
-  } else {
-      simpleclimber->Up();
-      frc::SmartDashboard::PutString("DB/String 2","Up");
-  }
+      if (simpleclimber->isLimitReached())
+      {
+        simpleclimber->Stop();
+        frc::SmartDashboard::PutString("DB/String 2", "UpStopped");
+      }
+      else
+      {
+        simpleclimber->Up();
+        frc::SmartDashboard::PutString("DB/String 2", "Up");
+      }
       break;
-      
+
     case WinchControls::Down:
       simpleclimber->Down();
-      frc::SmartDashboard::PutString("DB/String 2","Down");
+      frc::SmartDashboard::PutString("DB/String 2", "Down");
       break;
-      
+
     default:
       simpleclimber->Stop();
-      frc::SmartDashboard::PutString("DB/String 2","Defualt");
+      frc::SmartDashboard::PutString("DB/String 2", "Defualt");
       break;
   }
 }
@@ -67,13 +67,13 @@ void WinchCommand::Execute()
 frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
    return true;
 
-  } 
+  }
   return false;
 }*/
 
 void WinchCommand::End(bool interrupted)
 {
-  (void)interrupted;
-  
+  (void) interrupted;
+
   simpleclimber->Stop();
 }
