@@ -15,7 +15,7 @@ return WinchControls::Up;
   if (down){
 return WinchControls::Down;
   }
-  if (!up&&!down){
+  else {
 return WinchControls::Stop;
   }
 

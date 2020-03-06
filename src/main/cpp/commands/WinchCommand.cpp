@@ -73,5 +73,7 @@ frc::SmartDashboard::PutString("DB/String 0","IsFinishedReached");
 
 void WinchCommand::End(bool interrupted)
 {
+  (void)interrupted;
+  
   simpleclimber->Stop();
 }
