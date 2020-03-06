@@ -8,6 +8,12 @@ namespace PWM
     constexpr int right_back = 2;
 }
 
+namespace bucket 
+{
+    constexpr int door_left = 8;
+    constexpr int door_right = 9;
+}
+
 namespace controller
 {
     constexpr int main_controller = 0;
