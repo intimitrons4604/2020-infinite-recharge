@@ -9,13 +9,23 @@
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
-#include "subsystems/LimitSwitch.h"
-
 static constexpr double ArmSpeed = 0.5;
 static constexpr double RoboSpeed = 1;
-SimpleClimber::SimpleClimber()
+
+bool SimpleClimber::isLimitReached()
 {
-  limitSwitch = new frc::DigitalInput(4);
+  if (limitSwitch.Get())
+  {
+    std::cout << "LimitSwitch pressed";
+    frc::SmartDashboard::PutString("DB/String 1", "SwitchPressed");
+    return true;
+  }
+  else
+  {
+    std::cout << "not pressed";
+    frc::SmartDashboard::PutString("DB/String 1", "SwitchNotPressed");
+    return false;
+  }
 }
 
 void SimpleClimber::Stop()
@@ -26,57 +36,19 @@ void SimpleClimber::Stop()
 
 void SimpleClimber::Up()
 {
-  // print out working for testing
-  std::cerr << "cout works!";
-  frc::SmartDashboard::PutString("DB/String 0", "Up");
-
-  // old code
-  ClimbMotorArm.Set(ArmSpeed);
-  ClimbMotorRobot.Set(-RoboSpeed);
-
-  EncoderArm.GetDistance();
-  EncoderRobot.GetDistance();
-
-  // test code
-  if (EncoderArm.GetDistance() >= 5 || EncoderRobot.GetDistance() <= -5)
+  if (isLimitReached())
   {
-    ClimbMotorArm.StopMotor();
+    Stop();
   }
   else
   {
-    /* code */
-
     ClimbMotorArm.Set(ArmSpeed);
+    ClimbMotorRobot.Set(-RoboSpeed);
   }
 }
 
 void SimpleClimber::Down()
 {
-  // printing out "down" for testing
-  frc::SmartDashboard::PutString("DB/String 0", "Down");
-  frc::SmartDashboard::PutString("DB/String 1", "SmartDashboardWorks");
-
   ClimbMotorArm.Set(-ArmSpeed);
   ClimbMotorRobot.Set(RoboSpeed);
-
-  EncoderArm.GetDistance();
-  EncoderRobot.GetDistance();
-
-  // test code
-  if (EncoderArm.GetDistance() >= -5 || EncoderRobot.GetDistance() <= 5)
-  {
-    ClimbMotorArm.StopMotor();
-  }
-  /* else
-   {
-      code
-
-     ClimbMotorArm.Set(ArmSpeed);
-   }
-   */
-}
-
-void SimpleClimber::Periodic()
-{
-  // Implementation of subsystem periodic method goes here.
 }

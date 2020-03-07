@@ -12,3 +12,20 @@ namespace controller
 {
 constexpr int main_controller = 0;
 }
+
+namespace DIO
+{
+constexpr int winch_switch = 0;
+constexpr int leftEncoderA = 1;
+constexpr int leftEncoderB = 2;
+constexpr int rightEncoderA = 3;
+constexpr int rightEncoderB = 4;
+
+} // namespace DIO
+
+namespace PWM
+{
+constexpr int arm_motor = 5;
+constexpr int robot_motor = 6;
+
+} // namespace PWM

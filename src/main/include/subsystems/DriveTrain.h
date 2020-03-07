@@ -41,8 +41,8 @@ private:
   frc::DifferentialDrive drive_motors{left_motors, right_motors};
 
   // odometry encoders & gyro
-  frc::Encoder drive_encoder{7, 8, false, frc::Encoder::EncodingType::k4X};
-  frc::Encoder drive_encoder2{9, 0, false, frc::Encoder::EncodingType::k4X};
+  frc::Encoder left_encoder{DIO::leftEncoderA, DIO::leftEncoderB, false, frc::Encoder::EncodingType::k4X};
+  frc::Encoder right_encoder{DIO::rightEncoderA, DIO::rightEncoderB, false, frc::Encoder::EncodingType::k4X};
 
   frc::ADXRS450_Gyro drive_gyro{frc::SPI::Port::kOnboardCS1};
 
