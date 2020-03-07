@@ -8,7 +8,6 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
-#include <frc/Servo.h>
 #include <frc/Talon.h>
 
 
@@ -29,7 +28,6 @@ class ColourWheel : public frc2::SubsystemBase {
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  frc::Servo servo_motor {7};
   frc::Talon colour_motor {8};
   
 
