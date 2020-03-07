@@ -5,12 +5,12 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandBase.h>
 
+#include "commands/ColourWheelCommand.h"
 #include "commands/DriveTrainCommand.h"
 #include "commands/WinchCommand.h"
 #include "controls/Controls.h"
 #include "subsystems/DriveTrain.h"
 #include "subsystems/SimpleClimber.h"
-
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -35,6 +35,9 @@ private:
 
   SimpleClimber m_winchsubsystem;
   WinchCommand m_winchcommand{&m_controls, &m_winchsubsystem};
+
+  ColourWheel m_colourwheel;
+  ColourWheelCommand m_colourcommand{&m_controls, &m_colourwheel};
 
   void ConfigureButtonBindings();
 };

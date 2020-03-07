@@ -8,7 +8,7 @@
 #include "commands/ColourWheelCommand.h"
 
 
-ColourWheelCommand::ColourWheelCommand(std::shared_ptr<Controls> controls, std::shared_ptr<ColourWheel> colourwheel)
+ColourWheelCommand::ColourWheelCommand(Controls* controls, ColourWheel* colourwheel)
     : controls(controls), colourwheel(colourwheel) {
   // Use addRequirements() here to declare subsystem dependencies.
 }
@@ -20,7 +20,10 @@ void ColourWheelCommand::Initialize() {}
 void ColourWheelCommand::Execute() {}
 
 // Called once the command ends or is interrupted.
-void ColourWheelCommand::End(bool interrupted) {}
+void ColourWheelCommand::End(bool interrupted) 
+{
+  (void) interrupted;
+}
 
 // Returns true when the command should end.
 bool ColourWheelCommand::IsFinished() { return false; }

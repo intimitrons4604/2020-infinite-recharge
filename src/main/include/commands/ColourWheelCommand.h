@@ -22,7 +22,7 @@
 class ColourWheelCommand
     : public frc2::CommandHelper<frc2::CommandBase, ColourWheelCommand> {
  public:
-  ColourWheelCommand(std::shared_ptr<Controls> controls, std::shared_ptr<ColourWheel> colourwheel);
+  ColourWheelCommand(Controls* controls, ColourWheel* colourwheel);
 
   void Initialize() override;
 
@@ -33,6 +33,6 @@ class ColourWheelCommand
   bool IsFinished() override;
 
 private:
-  std::shared_ptr<Controls> controls;
-  std::shared_ptr<ColourWheel> colourwheel;
+  Controls* controls;
+  ColourWheel* colourwheel;
 };
