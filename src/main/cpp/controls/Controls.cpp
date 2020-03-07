@@ -32,3 +32,27 @@ WinchControls Controls::Get_WinchControls()
     return WinchControls::Stop;
   }
 }
+
+ColourControls Controls::getColourControls()
+{
+  bool spinc = controller.GetBButton();
+  bool spincc = controller.GetXButton();
+
+  if (spinc && spincc)
+  {
+    return ColourControls::Stop;
+  }
+  else if (spinc)
+  {
+    return ColourControls::SpinC;
+  }
+  else if (spincc)
+  {
+    return ColourControls::SpinCC;
+  }
+  else
+  {
+    return ColourControls::Stop;
+  }
+}
+
