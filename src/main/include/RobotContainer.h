@@ -5,8 +5,10 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandBase.h>
 
-#include "Controls.h"
+#include "commands/DriveTrainCommand.h"
 #include "commands/WinchCommand.h"
+#include "controls/Controls.h"
+#include "subsystems/DriveTrain.h"
 #include "subsystems/SimpleClimber.h"
 
 /**
@@ -25,9 +27,14 @@ public:
 
 private:
   // The robot's subsystems and commands are defined here...
-  std::shared_ptr<SimpleClimber> m_subsystem;
-  std::shared_ptr<WinchCommand> m_command;
-  std::shared_ptr<Controls> m_controls;
+
+  Controls m_controls;
+
+  DriveTrain m_drivetrain;
+  DriveTrainCommand m_drivecommand{&m_drivetrain, &m_controls};
+
+  SimpleClimber m_winchsubsystem;
+  WinchCommand m_winchcommand{&m_controls, &m_winchsubsystem};
 
   void ConfigureButtonBindings();
 };

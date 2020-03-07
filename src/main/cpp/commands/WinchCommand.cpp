@@ -4,10 +4,10 @@
 
 #include "subsystems/LimitSwitch.h"
 #include "subsystems/SimpleClimber.h"
-WinchCommand::WinchCommand(std::shared_ptr<Controls> controls, std::shared_ptr<SimpleClimber> simpleclimber)
+WinchCommand::WinchCommand(Controls* controls, SimpleClimber* simpleclimber)
     : controls(controls), simpleclimber(simpleclimber)
 {
-  AddRequirements(simpleclimber.get());
+  AddRequirements(simpleclimber);
 }
 
 void WinchCommand::Initialize()

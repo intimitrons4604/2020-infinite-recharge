@@ -1,13 +1,10 @@
 #include "RobotContainer.h"
 
-RobotContainer::RobotContainer() //: m_autonomousCommand(&m_subsystem)
+RobotContainer::RobotContainer()
 {
-  m_subsystem = std::make_unique<SimpleClimber>();
-  m_controls = std::make_unique<Controls>();
-  m_command = std::make_unique<WinchCommand>(m_controls, m_subsystem);
-  // Initialize all of your commands and subsystems here
+  m_drivetrain.SetDefaultCommand(m_drivecommand);
 
-  m_subsystem->SetDefaultCommand(*m_command);
+  m_winchsubsystem.SetDefaultCommand(m_winchcommand);
 
   // Configure the button bindings
   ConfigureButtonBindings();
@@ -21,6 +18,4 @@ void RobotContainer::ConfigureButtonBindings()
 frc2::Command* RobotContainer::GetAutonomousCommand()
 {
   return nullptr;
-  // An example command will be run in autonomous
-  // return &m_autonomousCommand;
 }
