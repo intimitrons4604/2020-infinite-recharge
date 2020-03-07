@@ -24,4 +24,3 @@ bool ArcadeControls::isTurbo()
   return turbo;
 }
 
-

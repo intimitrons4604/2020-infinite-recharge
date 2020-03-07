@@ -1,6 +1,5 @@
 #include "subsystems/DriveTrain.h"
 
-
 static constexpr double kSpeedLimit = 0.5;
 // kSpeedLimit should be a positive number lower than 1
 
@@ -34,5 +33,6 @@ void DriveTrain::Stop()
 void DriveTrain::Periodic()
 {
   frc::Rotation2d gyroAngle{units::degree_t(-drive_gyro.GetAngle())};
-  drive_pose = m_odometry.Update(gyroAngle, units::meter_t(drive_encoder.GetDistance()), units::meter_t (drive_encoder2.GetDistance()));
+  drive_pose = m_odometry.Update(
+    gyroAngle, units::meter_t(drive_encoder.GetDistance()), units::meter_t(drive_encoder2.GetDistance()));
 }

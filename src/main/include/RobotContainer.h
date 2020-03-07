@@ -2,9 +2,9 @@
 
 #include <frc2/command/Command.h>
 
-#include "subsystems/DriveTrain.h"
 #include "commands/DriveTrainCommand.h"
 #include "controls/Controls.h"
+#include "subsystems/DriveTrain.h"
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -21,7 +21,7 @@ public:
 
 private:
   // The robot's subsystems and commands are defined here...
-  DriveTrain m_drivetrain; 
+  DriveTrain m_drivetrain;
   DriveTrainCommand m_drivecommand{&m_drivetrain, &m_drivecontrols};
   Controls m_drivecontrols;
 

@@ -25,7 +25,6 @@ class DriveTrainCommand : public frc2::CommandHelper<frc2::CommandBase, DriveTra
 {
 public:
   DriveTrainCommand(DriveTrain* aSubsystem, Controls* aControls);
-  
 
   void Initialize() override;
 
