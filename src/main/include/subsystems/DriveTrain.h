@@ -20,7 +20,6 @@
 class DriveTrain : public frc2::Subsystem
 {
 public:
-
   void KinematicsDrive(double xSpeed, double zRotation, units::meter_t trackWidth, bool isQuickTurn);
 
   void OdometryDrive(double xSpeed, double zRotation, units::meter_t x, units::meter_t y);

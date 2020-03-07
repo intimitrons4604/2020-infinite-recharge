@@ -34,8 +34,7 @@ private:
   DriveTrainCommand m_drivecommand{&m_drivetrain, &m_controls};
 
   SimpleClimber m_winchsubsystem;
-  WinchCommand m_winchcommand {&m_controls, &m_winchsubsystem};
-
+  WinchCommand m_winchcommand{&m_controls, &m_winchsubsystem};
 
   void ConfigureButtonBindings();
 };

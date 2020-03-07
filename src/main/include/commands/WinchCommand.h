@@ -6,8 +6,8 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "controls/Controls.h"
-#include "subsystems/SimpleClimber.h"
 #include "controls/WinchControls.h"
+#include "subsystems/SimpleClimber.h"
 
 class WinchCommand : public frc2::CommandHelper<frc2::CommandBase, WinchCommand>
 {

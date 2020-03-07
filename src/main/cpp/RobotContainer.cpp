@@ -2,14 +2,12 @@
 
 RobotContainer::RobotContainer()
 {
- 
- m_drivetrain.SetDefaultCommand(m_drivecommand);
+  m_drivetrain.SetDefaultCommand(m_drivecommand);
 
   m_winchsubsystem.SetDefaultCommand(m_winchcommand);
 
   // Configure the button bindings
   ConfigureButtonBindings();
-
 }
 
 void RobotContainer::ConfigureButtonBindings()
@@ -20,5 +18,4 @@ void RobotContainer::ConfigureButtonBindings()
 frc2::Command* RobotContainer::GetAutonomousCommand()
 {
   return nullptr;
-  
 }

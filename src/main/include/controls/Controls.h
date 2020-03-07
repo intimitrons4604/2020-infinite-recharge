@@ -3,8 +3,8 @@
 #include <frc/XboxController.h>
 
 #include "ArcadeControls.h"
-#include "wiring.h"
 #include "controls/WinchControls.h"
+#include "wiring.h"
 
 class Controls
 {
@@ -15,4 +15,3 @@ public:
 private:
   frc::XboxController controller{controller::main_controller};
 };
-
