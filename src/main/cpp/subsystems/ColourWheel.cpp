@@ -7,13 +7,20 @@
 
 static constexpr double kSpeed = 0.5;
 #include "subsystems/ColourWheel.h"
-
+#include <iostream>
+#include <frc/util/Color.h>
 ColourWheel::ColourWheel() {
 
 }
 
 // This method will be called once per scheduler run
-void ColourWheel::Periodic() {}
+void ColourWheel::Periodic() {
+
+    frc::Color colour = colour_sensor.GetColor();
+
+
+    std::cout << colour.red <<" " << colour.green <<" "<< colour.blue <<"\n";
+}
 
 void ColourWheel::SpinC() {
     if (colour_motor.Get())

@@ -8,7 +8,9 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
-#include <frc/Talon.h>
+#include <frc/VictorSP.h>
+#include <rev/ColorSensorV3.h>
+#include <frc/I2C.h>
 
 
 class ColourWheel : public frc2::SubsystemBase {
@@ -28,7 +30,8 @@ class ColourWheel : public frc2::SubsystemBase {
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  frc::Talon colour_motor {8};
+ frc::VictorSP colour_motor {8};
+ rev::ColorSensorV3 colour_sensor {frc::I2C::Port::kOnboard};
   
 
 
